@@ -6,8 +6,8 @@ import java.util.List;
 public class AppManager implements KeyListener, ButtonClickListener{
     int index = 0;
     final Frame frame;
-    FilesManager manager = new FilesManager("/Users/sebastian/Desktop/dataset/");
-    String[] keys = new String[]{"przód","tył","lewo","prawo","others","skip"};
+    FilesManager manager = new FilesManager("");
+    String[] keys = new String[]{"skip"};
     List<File> files;
 
     AppManager(){
