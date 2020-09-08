@@ -11,12 +11,14 @@ import java.util.stream.Stream;
 
 public class FilesManager {
      String path;
+     List<File> files;
 
     FilesManager(String path){
         this.path = path;
+        searchForImgFiles();
     }
 
-     List<File> getFiles(){
+     List<File> searchForImgFiles(){
         List<File> arrayFilesList = new ArrayList<File>();
 //         File dir = new File(path);
 //         File [] files = dir.listFiles(new FilenameFilter() {
@@ -46,8 +48,13 @@ public class FilesManager {
              e.printStackTrace();
          }
 
-
+        this.files = new ArrayList<File>();
+         this.files.addAll(arrayFilesList);
          return arrayFilesList;
+    }
+
+    public List<File> getFiles() {
+        return files;
     }
 
     public void createDirectories(String[] dirs){

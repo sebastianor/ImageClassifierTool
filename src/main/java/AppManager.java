@@ -6,8 +6,8 @@ import java.util.List;
 public class AppManager implements KeyListener, ButtonClickListener{
     int index = 0;
     final Frame frame;
-    FilesManager manager = new FilesManager("/");
-    String[] keys = new String[]{};
+    FilesManager manager = new FilesManager("/Users/sebastian/Desktop/dataset/");
+    String[] keys = new String[]{"przód","tył","lewo","prawo","others","skip"};
     List<File> files;
 
     AppManager(){
@@ -27,7 +27,8 @@ public class AppManager implements KeyListener, ButtonClickListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode()== KeyEvent.VK_SPACE){
+        if(e.getKeyCode()== KeyEvent.VK_A){
+
             this.loadNewImage();
 
         }
@@ -42,7 +43,9 @@ public class AppManager implements KeyListener, ButtonClickListener{
     @Override
     public void onButtonClick(String name) {
         System.out.println(name);
-        manager.moveFileToNewDirectory(files.get(index), name);
+        if(name != "skip") {
+            manager.moveFileToNewDirectory(files.get(index), name);
+        }
         loadNewImage();
 
     }
